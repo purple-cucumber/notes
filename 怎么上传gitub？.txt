@@ -1,0 +1,57 @@
+把你的代码送上GitHub
+第一步：下载安装 Git
+这是把代码从本地传到 GitHub 的桥梁。
+
+搜“Git 下载”，进官网，选你系统版本下载安装。
+
+安装过程一路点“Next”，所有选项保持默认就好。
+
+安装完验证：打开终端（cmd 或 PowerShell），输入：
+
+bash
+git --version
+看到版本号就成功了。
+
+第二步：告诉 Git 你是谁
+在终端里粘贴下面两行（换成你的信息）：
+
+bash
+git config --global user.name "你的GitHub用户名"
+git config --global user.email "你注册GitHub用的邮箱"
+这是给每次上传代码“签名”。
+
+第三步：把本地代码初始化成 Git 仓库并上传
+现在假设你有一个装满了 Python 练习的文件夹 python-learning。在终端里进行如下操作：
+
+bash
+# 1. 进入这个文件夹
+cd python-learning
+
+# 2. 把这个文件夹变成 Git 管理的仓库
+git init
+
+# 3. 添加文件夹里所有文件到暂存区
+git add .
+
+# 4. 提交这个版本，写上描述（比如“第一天练习”）
+git commit -m "Day1: 完成变量、输入输出练习"
+
+# 5. 关联你的 GitHub 远程仓库
+# 首先去 GitHub 网站，点右上角“+”，选 New repository，仓库名也写 python-learning，不要勾选任何初始化文件，点创建。
+# 然后把下面这行命令中的网址换成你仓库的地址（可以直接复制）
+git remote add origin https://github.com/你的用户名/python-learning.git
+
+# 6. 把本地代码推上去
+git push -u origin main
+注意：如果你第6步报错说 master 而不是 main，可能是 Git 默认分支名不同，把 main 改成 master 再试。
+
+刷新你的 GitHub 仓库页面，代码就出现在网上了。
+
+后面每天怎么写完代码就上传？
+每次做完当天的练习，重复下面三板斧：
+
+bash
+git add .                    # 添加所有改动
+git commit -m "Day2: 完成列表和循环练习"   # 提交
+git push                     # 推送到 GitHub
+你的 GitHub 个人主页上，那些小绿点就会一天天亮起来。
